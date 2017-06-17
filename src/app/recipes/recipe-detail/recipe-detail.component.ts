@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { Recipe } from '../recipe.model'
+import { RecipeService } from '../recipe.service';
 @Component({
   selector: 'app-recipe-detail',
   templateUrl: './recipe-detail.component.html',
@@ -7,9 +8,14 @@ import { Recipe } from '../recipe.model'
 })
 export class RecipeDetailComponent implements OnInit {
 @Input() recipeData: Recipe;
-  constructor() { }
+  constructor(private recipeService: RecipeService) { }
 
   ngOnInit() {
+
+  }
+
+  onToShoppingListClick() {
+    this.recipeService.addIngredients(this.recipeData.ingredients);
   }
 
 }
