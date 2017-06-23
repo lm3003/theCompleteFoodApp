@@ -49,6 +49,11 @@ export  class RecipeService {
     this.recipeChangedEmitter.next(this.recipes.slice());
   }
 
+  setRecipes(recipes: Recipe []) {
+    this.recipes = recipes;
+    this.recipeChangedEmitter.next(this.recipes.slice());
+  }
+
 
 
 
